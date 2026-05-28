@@ -22,16 +22,17 @@ db();
 // Middleware
 app.use(cors({
   origin: [
-    'http://localhost:5173', // Vite dev server
-    'http://localhost:3000', // Local frontend
-    'https://ralla.netlify.app', // Netlify domains
-    'https://ralla-frontend.vercel.app', // Your vercel domain
-    'https://ralla.in', // Your specific Netlify domain
+    'http://localhost:5173',
+    'http://127.0.0.1:5500',
+    'https://ralla.in',
+    'https://www.ralla.in',
+    'https://ralla-frontend.vercel.app'
   ],
-  credentials: true,
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-  allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With']
+  allowedHeaders: ['Content-Type', 'Authorization'],
+  credentials: true
 }));
+app.options('*', cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
