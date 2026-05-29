@@ -16,10 +16,7 @@ const initializeFirebase = () => {
       type: "service_account",
       project_id: (process.env.FIREBASE_PROJECT_ID || '').trim(),
       private_key_id: (process.env.FIREBASE_PRIVATE_KEY_ID || '').trim(),
-      privateKey: Buffer.from(
-                    process.env.FIREBASE_PRIVATE_KEY_BASE64,
-                   'base64'
-                  ).toString('utf8'),
+      privateKey: privateKey
       client_email: (process.env.FIREBASE_CLIENT_EMAIL || '').trim(),
       client_id: (process.env.FIREBASE_CLIENT_ID || '').trim(),
       auth_uri: (process.env.FIREBASE_AUTH_URI || '').trim(),
